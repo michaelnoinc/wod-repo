@@ -1,3 +1,7 @@
+html,body,.navbar {
+  background: #757575;
+} 
+
 .user-name {
   padding: 0 !important ;
   padding-left: 5px;
@@ -15,6 +19,11 @@
 .logout {
 padding-left: 0;
 }
+
+.navbar-brand {
+  color: white !important;
+}
+
 .nav.navbar-right {
 padding-bottom: 10px;
 padding-top: 5px;
@@ -22,16 +31,17 @@ padding-top: 5px;
 .nav.navbar-nav {
   .navbar-link {
   border-radius: 5px;
-  color: #fff;
+  color: #FFFFFF;
   margin-top: 15px;
   padding: 8px;
   }
   .navbar-link:focus, .navbar-link:hover {
   background: #3071a9;
-  color: #fff;
+  color: #FFFFFF;
   }
   li a {
   margin-right: 5px;
+    color: #FFFFFF;
   }
 }
 .nav.navbar-right li {

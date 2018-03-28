@@ -11,7 +11,72 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307192402) do
+ActiveRecord::Schema.define(version: 20180327170140) do
+
+  create_table "characters", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "name"
+    t.text     "age"
+    t.text     "player"
+    t.text     "virtue"
+    t.text     "vice"
+    t.text     "concept"
+    t.text     "chronicle"
+    t.text     "faction"
+    t.text     "groupName"
+    t.integer  "intelligence"
+    t.integer  "wits"
+    t.integer  "resolve"
+    t.integer  "strength"
+    t.integer  "dexterity"
+    t.integer  "stamina"
+    t.integer  "presence"
+    t.integer  "manipulation"
+    t.integer  "composure"
+    t.integer  "size"
+    t.text     "speed"
+    t.text     "defense"
+    t.text     "armor"
+    t.text     "initiativeMod"
+    t.integer  "beats"
+    t.text     "experiences"
+    t.integer  "maxHealth"
+    t.text     "health"
+    t.integer  "maxWillpower"
+    t.text     "willpower"
+    t.text     "aspirations",   default: "---\n- 4\n"
+    t.text     "inventory"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "characters", ["user_id"], name: "index_characters_on_user_id"
+
+  create_table "conditions", force: :cascade do |t|
+    t.integer  "character_id"
+    t.text     "name"
+    t.text     "description"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "merits", force: :cascade do |t|
+    t.integer  "character_id"
+    t.text     "name"
+    t.text     "description"
+    t.integer  "value"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.integer  "character_id"
+    t.text     "name"
+    t.text     "specialty"
+    t.integer  "value"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

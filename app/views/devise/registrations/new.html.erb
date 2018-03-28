@@ -21,6 +21,10 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
+      
+      <%= flash[:recaptcha_error] %>
+      <%= recaptcha_tags %>
+      
       <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
     <% end %>
   </div>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  age: MyText
+  player: MyText
+  virtue: MyText
+  vice: MyText
+  concept: MyText
+  chronicle: MyText
+  faction: MyText
+  groupName: MyText
+
+two:
+  name: MyText
+  age: MyText
+  player: MyText
+  virtue: MyText
+  vice: MyText
+  concept: MyText
+  chronicle: MyText
+  faction: MyText
+  groupName: MyText

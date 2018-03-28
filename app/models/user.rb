@@ -13,6 +13,21 @@ class User < ActiveRecord::Base
   # Only allow letter, number, underscore and punctuation.
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   validate :validate_username
+  
+  has_many :character
+  
+  #def new
+  #  #@user = User.new
+  #end
+  #
+  #def create
+  #  if verify_recaptcha
+  #    #render 'show'
+  #  else
+  #    #@user = User.new
+  #    #render 'new'
+  #  end
+  #end
 
   def validate_username
     if User.where(email: username).exists?

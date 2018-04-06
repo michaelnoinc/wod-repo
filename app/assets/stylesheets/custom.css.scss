@@ -90,3 +90,24 @@ color: #fff;
   list-style: none;
   padding-left: 0;
 }
+
+.attributes{
+  float:center;
+  padding: 20px;
+  background-color: gray;
+  border: 1px solid;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.skills{
+  float:left;
+  padding: 20px;
+  border: 1px solid;
+}
+
+.notSkills{
+  float:right;
+  padding: 20px;
+}

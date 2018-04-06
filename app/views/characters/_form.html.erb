@@ -1,22 +1,206 @@
 <div class='row'>
   <div class = 'col-xs-12'>
     <%= form_for(@character, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    
+    <div class="basicInfo">
       <div class="form-group">
-        <div class="control-label col-sm-2">
+        <div class="control-label col-sm-1">
           <%= f.label :name %>
         </div>
-        <div class="col-sm-8">
-          <%= f.text_field :name, class: "form-control", placeholder: "Title of article", autofocus: true %>
+        <div class="col-sm-3">
+          <%= f.text_field :name, class: "form-control", placeholder: "Name", autofocus: true %>
+        </div>
+        <div class="control-label col-sm-1">
+          <%= f.label :virtue %>
+        </div>
+        <div class="col-sm-3">
+          <%= f.text_field :virtue, class: "form-control", placeholder: "Virtue", autofocus: true %>
+        </div>
+        <div class="control-label col-sm-1">
+          <%= f.label :chronicle %>
+        </div>
+        <div class="col-sm-3">
+          <%= f.text_field :chronicle, class: "form-control", placeholder: "Chronicle", autofocus: true %>
         </div>
       </div>
+    
+      <div class="form-group">
+          <div class="control-label col-sm-1">
+            <%= f.label :age %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.text_field :age, class: "form-control", placeholder: "Age", autofocus: true %>
+          </div>
+          <div class="control-label col-sm-1">
+            <%= f.label :vice %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.text_field :vice, class: "form-control", placeholder: "Vice", autofocus: true %>
+          </div>
+          <div class="control-label col-sm-1">
+            <%= f.label :faction %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.text_field :faction, class: "form-control", placeholder: "Faction", autofocus: true %>
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <div class="control-label col-sm-1">
+            <%= f.label :player %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.text_field :player, class: "form-control", placeholder: "Player", autofocus: true %>
+          </div>
+          <div class="control-label col-sm-1">
+            <%= f.label :concept %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.text_field :concept, class: "form-control", placeholder: "Concept", autofocus: true %>
+          </div>
+          <div class="control-label col-sm-1">
+            <%= f.label :groupName %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.text_field :groupName, class: "form-control", placeholder: "Group Name", autofocus: true %>
+          </div>
+        </div>
+    </div>
+    
+    <br />
+    
+    <div class="attributes">
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :intelligence %>
+        </div>
+        <div class="col-sm-2">
+          <%= f.number_field :intelligence, class: "form-control", placeholder: "1", autofocus: true %>
+        </div>
+        <div class="control-label col-sm-2">
+          <%= f.label :strength %>
+        </div>
+        <div class="col-sm-2">
+          <%= f.number_field :strength, class: "form-control", placeholder: "1", autofocus: true %>
+        </div>
+        <div class="control-label col-sm-2">
+          <%= f.label :presence %>
+        </div>
+        <div class="col-sm-2">
+          <%= f.number_field :presence, class: "form-control", placeholder: "1", autofocus: true %>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :wits %>
+        </div>
+        <div class="col-sm-2">
+          <%= f.number_field :wits, class: "form-control", placeholder: "1", autofocus: true %>
+        </div>
+        <div class="control-label col-sm-2">
+          <%= f.label :dexterity %>
+        </div>
+        <div class="col-sm-2">
+          <%= f.number_field :dexterity, class: "form-control", placeholder: "1", autofocus: true %>
+        </div>
+        <div class="control-label col-sm-2">
+          <%= f.label :manipulation %>
+        </div>
+        <div class="col-sm-2">
+          <%= f.number_field :manipulation, class: "form-control", placeholder: "1", autofocus: true %>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :resolve %>
+        </div>
+        <div class="col-sm-2">
+          <%= f.number_field :resolve, class: "form-control", placeholder: "1", autofocus: true %>
+        </div>
+        <div class="control-label col-sm-2">
+          <%= f.label :stamina %>
+        </div>
+        <div class="col-sm-2">
+          <%= f.number_field :stamina, class: "form-control", placeholder: "1", autofocus: true %>
+        </div>
+        <div class="control-label col-sm-2">
+          <%= f.label :composure %>
+        </div>
+        <div class="col-sm-2">
+          <%= f.number_field :composure, class: "form-control", placeholder: "1", autofocus: true %>
+        </div>
+      </div>
+    </div>
+    
+    <br />
+    
+    <div class="skills col-sm-5" style="background-color: gray">
+      <% puts "@character.get_skills.count: #{@character.get_skills.count}" %>
+      
+      <% i = 0 %>
+      <% @character.get_skills.each do |s| %>
+        <%= form_for(s, :html => {class: "form-horizontal", role: "form"}) do |g| %>
+          <div class="form-group">
+            <div class="control-label col-sm-4">
+              <% puts "s.name: #{s.name}" %>
+              <%= g.label :name, s.name %>
+            </div>
+            <div class="col-sm-5">
+              <%= g.text_field :specialty, class: "form-control", placeholder: "specialty", autofocus: true %>
+            </div>
+            <div class="col-sm-3">
+              <%= g.number_field :value, class: "form-control", placeholder: "1", autofocus: true %>
+            </div>
+          </div>
+        <% end %>
+      
+        <% i += 1 %>
+        <% if i % 8 == 0 %>
+          <%= puts "break" %>
+          <br />
+        <% end %>
+      
+      <% end %>
+    </div>
+    
+    <br />
+    
+    <div class="otherTraits col-sm-7">
+      <div class="leftSide col-sm-6 float-left">
+        <% puts "@character.get_skills.count: #{@character.get_skills.count}" %>
+      
+        <% @character.get_skills.each do |s| %>
+          <%= form_for(s, :html => {class: "form-horizontal", role: "form"}) do |g| %>
+            <div class="form-group">
+              <div class="control-label col-sm-4">
+                <% puts "s.name: #{s.name}" %>
+                <%= g.label :name, s.name %>
+              </div>
+              <div class="col-sm-5">
+                <%= g.text_field :specialty, class: "form-control", placeholder: "specialty", autofocus: true %>
+              </div>
+              <div class="col-sm-3">
+                <%= g.number_field :value, class: "form-control", placeholder: "1", autofocus: true %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="rightSide col-sm-6 float-right">
         
+      </div>
+    </div>
+       
+    
         
       <div class="form-group">
         <div class="control-label col-sm-2">
-          <%= f.label :age %>
+          <%= f.label :inventory %>
         </div>
         <div class="col-sm-8">
-          <%= f.text_area :age, rows: 10, class: "form-control", placeholder: "Body of article" %>
+          <%= f.text_area :inventory, rows: 10, class: "form-control", placeholder: "inventory" %>
         </div>
       </div>
         
